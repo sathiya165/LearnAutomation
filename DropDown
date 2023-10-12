@@ -1,0 +1,30 @@
+package LearnAutomation;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDown {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/select.xhtml");
+		
+		WebElement Dropdown1 = driver.findElementByClassName("ui-selectonemenu");
+		Select select = new Select(Dropdown1);
+		select.selectByIndex(1);
+		
+		WebElement Dropdown2 = driver.findElementById("j_idt87:country_items");
+		Select select1 = new Select(Dropdown2);
+		select1.selectByVisibleText("India");
+		
+		/*WebElement Dropdown3 = driver.findElementByXPath("//*[@id=\'j_idt87:city_label\']");
+		Select select2 = new Select(Dropdown3);
+		select2.selectByVisibleText("Chennai");
+		
+		*/
+		
+	}
+
+}
