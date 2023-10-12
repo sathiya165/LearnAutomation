@@ -1,0 +1,34 @@
+package LearnAutomation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RadioButton {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/radio.xhtml");
+		
+		driver.manage().window().maximize();
+		
+		WebElement Browser =driver.findElementByXPath("//*[@id=\'j_idt87:console1\']/tbody/tr/td[1]/div/div[2]/span");
+		Browser.click();
+		
+		WebElement city =driver.findElementByXPath("//*[@id=\'j_idt87:city2\']/div/div[1]/div/div[2]");
+		city.click();
+		
+		String select =driver.findElementByXPath("//*[@id=\'j_idt87:console2\']/tbody/tr/td[3]/label").getText();
+		System.out.println(select);
+		
+		WebElement unselect =driver.findElementByXPath("//*[@id=\'j_idt87:age\']/div/div[2]/div/div[2]");
+		
+		if(unselect.isSelected()) {
+			System.out.println("select");
+		}
+		
+	}
+
+}
