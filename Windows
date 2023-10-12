@@ -1,0 +1,37 @@
+package LearnAutomation;
+
+import java.util.Set;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Window {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/window.xhtml");
+		
+		String oldwindow =driver.getWindowHandle();
+		
+		WebElement open =driver.findElementById("j_idt88:new");
+		open.click();
+		
+		Set<String> handles=driver.getWindowHandles();
+		
+		for(String newWindow : handles) {
+			
+			driver.switchTo().window(newWindow);
+		}
+		driver.close();
+		
+		driver.switchTo().defaultContent();
+		
+		WebElement multiplewindow =driver.findElementByXPath("//*[@id=\'j_idt88:j_idt91\']");
+		multiplewindow.click();
+		
+		int noofwin =driver.getWindowHandles().size();
+		System.out.println("No of Window->"+noofwin);
+	}
+
+}
