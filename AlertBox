@@ -1,0 +1,50 @@
+package LearnAutomation;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Alerts {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/alert.xhtml;jsessionid=node016iwo0h42vc2w188921a5glsrn319419.node0");
+		driver.manage().window().maximize();
+		WebElement show =driver.findElement(By.id("j_idt88:j_idt91"));
+		show.click();
+		
+		Alert box =driver.switchTo().alert();
+		String text=box.getText();
+		System.out.println(text);
+		box.accept();
+		
+		WebElement show1 =driver.findElement(By.id("j_idt88:j_idt93"));
+		show1.click();
+		Alert box1 =driver.switchTo().alert();
+		box1.accept();
+		
+		
+		/*WebElement show2 =driver.findElement(By.id("j_idt88:j_idt95"));
+		show2.click();
+		Alert box2 =driver.switchTo().alert();
+		driver.close();
+		
+		
+		WebElement show3 =driver.findElement(By.id("j_idt88:j_idt101"));
+		show3.click();
+		Alert box3 =driver.switchTo().alert();
+		driver.close();
+		*/
+		WebElement show4 =driver.findElement(By.id("j_idt88:j_idt104"));
+		show4.click();
+		Alert box4 =driver.switchTo().alert();
+		box4.sendKeys("Sathi");
+		box4.accept();
+		
+	}
+
+}
