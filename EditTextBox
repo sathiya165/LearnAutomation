@@ -1,0 +1,47 @@
+package LearnAutomation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class EditTextBox {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://leafground.com/input.xhtml;jsessionid=node02o6smrf7w4b612kgeoli4og74314657.node0");
+		
+		WebElement name = driver.findElementById("j_idt88:name");
+		name.sendKeys("sathiya");
+		
+		WebElement append = driver.findElementByXPath("//input[contains(@class,'all city')]");
+		append.sendKeys("Trichy");
+        
+		boolean disable = driver.findElementByXPath("//input[contains(@placeholder,'Disabled')]").isDisplayed();
+        System.out.println(disable);
+        
+        WebElement clearme = driver.findElementByXPath("//*[@id=\'j_idt88:j_idt95\']");
+        clearme.clear();
+        
+        String retrieve = driver.findElementByXPath("//*[@id=\'j_idt88:j_idt97\']").getAttribute("value");
+        System.out.println(retrieve);
+        
+        WebElement Email = driver.findElementByXPath("//input[@id='j_idt88:j_idt99']");
+        Email.sendKeys("sathi@gmail.com",Keys.TAB);
+        
+        WebElement Type = driver.findElementById("j_idt88:j_idt101");
+        Type.sendKeys("Hai..its me.Thats it bye");
+        
+        WebElement Editor = driver.findElementByXPath("//*[@id=\'j_idt88:j_idt103_editor\']/div[1]");
+        Editor.sendKeys("Hello");
+       
+        WebElement Username = driver.findElementById("j_idt106:thisform:age");
+        Username.sendKeys("Username",Keys.ENTER);
+        
+       
+	}
+
+}
