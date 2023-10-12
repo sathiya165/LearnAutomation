@@ -1,0 +1,24 @@
+package LearnAutomation;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class DragDrop {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/drag.xhtml;jsessionid=node01i8gx7b4onfdb1874afbfir9mp318757.node0");
+		
+		WebElement From =driver.findElementById("form:drag");
+		WebElement To =driver.findElementById("form:drop");
+		
+		Actions drag = new Actions(driver);
+		//drag.clickAndHold(From).moveToElement(To).build().perform();
+		drag.dragAndDrop(From, To).build().perform();
+
+	}
+
+}
