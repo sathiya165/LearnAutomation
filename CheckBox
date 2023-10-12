@@ -1,0 +1,28 @@
+package LearnAutomation;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CheckBox {
+
+	public static void main(String[] args) {
+           		
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/checkbox.xhtml;jsessionid=node0982ucamyv10oawn1s06cjb47322003.node0");
+		
+		WebElement basic =driver.findElementByXPath("//*[@id=\'j_idt87:j_idt89\']/div[2]");
+		basic.click();
+		
+		WebElement ajax =driver.findElementByXPath("//*[@id=\'j_idt87:j_idt91\']/div[2]");
+		ajax.click();
+		
+		WebElement java =driver.findElementByXPath("//*[@id=\'j_idt87:basic\']/tbody/tr/td[1]/div/div[2]");
+		java.click();
+		
+		WebElement toggle =driver.findElementById("j_idt87:j_idt100");
+		toggle.click();
+
+	}
+
+}
