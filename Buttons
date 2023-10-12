@@ -1,0 +1,47 @@
+package LearnAutomation;
+
+
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Buttons {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","./Drivers./chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/button.xhtml");
+		
+		WebElement Click = driver.findElementById("j_idt88:j_idt90");
+		Click.click();
+		driver.navigate().back();
+		
+		boolean disabled = driver.findElementByName("j_idt88:j_idt92").isDisplayed();
+		System.out.println(disabled);
+
+		WebElement position = driver.findElementById("j_idt88:j_idt94");
+		Point point=position.getLocation();
+		int x=point.getX();
+		int y=point.getY();
+		System.out.println("x ->"+x +"y ->"+y);
+		
+		String Color = driver.findElementById("j_idt88:j_idt96").getCssValue("background");
+		System.out.println(Color);
+
+		WebElement size =driver.findElementByXPath("//*[@id=\'j_idt88:j_idt98\']/span[2]");
+		int height = size.getSize().getHeight();
+		int width = size.getSize().getWidth();
+		System.out.println("Height -> "+height +"width ->"+width);
+		
+		WebElement change =driver.findElementById("j_idt88:j_idt100");
+		change.click();
+		
+		WebElement image =driver.findElementById("j_idt102");
+		image.click();
+		
+	}
+		
+
+}
